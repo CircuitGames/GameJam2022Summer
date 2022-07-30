@@ -1,0 +1,8 @@
+{
+    "workbench.iconTheme": "vscode-icons",
+    "editor.formatOnSave": true,
+    "omnisharp.organizeImportsOnFormat": true,
+    "omnisharp.enableRoslynAnalyzers": true,
+    "omnisharp.analyzeOpenDocumentsOnly": true,
+    "trailing-spaces.trimOnSave": true
+}
