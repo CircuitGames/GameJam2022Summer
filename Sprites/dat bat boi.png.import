@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/dat bat boi.png-0a400c210b1a476d541e890745d0dd52.stex"
+path="res://.import/dat bat boi.png-0fac347797da363d2e1f1c89b6eb2bea.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/dat bat boi.png"
-dest_files=[ "res://.import/dat bat boi.png-0a400c210b1a476d541e890745d0dd52.stex" ]
+source_file="res://Sprites/dat bat boi.png"
+dest_files=[ "res://.import/dat bat boi.png-0fac347797da363d2e1f1c89b6eb2bea.stex" ]
 
 [params]
 

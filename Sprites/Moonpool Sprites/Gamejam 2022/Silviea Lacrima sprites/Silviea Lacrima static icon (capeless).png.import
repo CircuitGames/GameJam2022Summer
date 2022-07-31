@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Silviea Lacrima static icon (capeless).png-2e996eb9d1e065630a45ab1e18916e70.stex"
+path="res://.import/Silviea Lacrima static icon (capeless).png-c5ec293f13940306ea7cfe176e25a1e6.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/Silviea Lacrima static icon (capeless).png"
-dest_files=[ "res://.import/Silviea Lacrima static icon (capeless).png-2e996eb9d1e065630a45ab1e18916e70.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/Silviea Lacrima static icon (capeless).png"
+dest_files=[ "res://.import/Silviea Lacrima static icon (capeless).png-c5ec293f13940306ea7cfe176e25a1e6.stex" ]
 
 [params]
 

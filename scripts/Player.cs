@@ -1,14 +1,25 @@
 using Godot;
+using System;
 
 public class Player : KinematicBody2D
 {
+
+	[Export]
+	string m_playerID = "";
+
+	[Export]
+    float m_movementSpeed = 30;
     [Export]
-    float m_movementSpeed = 400;
+    float m_acceleration = 35;
     [Export]
-    float m_acceleration = 100;
-    [Export]
-    float m_frictionCoeficient = 8;
+    float m_frictionCoeficient = 20;
     Vector2 m_velocity = Vector2.Zero;
+
+	private AnimatedSprite sprite;
+
+
+    PackedScene bulletScene;
+
 
     void UpdateVelocity ( Vector2 directionalInput, float delta )
     {
@@ -22,12 +33,49 @@ public class Player : KinematicBody2D
         return;
     }
 
-    public override void _Process ( float delta )
+	public override void _Ready ()
+	{
+		initiateAnimations();
+
+        bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
+	}
+
+	public void initiateAnimations()
+	{
+		sprite = ((AnimatedSprite)GetNode("AnimatedSprite"));
+		sprite.Play("Idle");
+	}
+
+    public override void _PhysicsProcess ( float delta )
     {
         PhysHelp.constrainDelta( ref delta );
-        Vector2 directionalInput = Input.GetVector( "ui_left", "ui_right", "ui_up", "ui_down" );
+        Vector2 directionalInput = Input.GetVector( m_playerID + "ui_left", m_playerID + "ui_right", m_playerID + "ui_up", m_playerID + "ui_down" );
+		if (directionalInput == Vector2.Zero)
+		{
+			directionalInput = Input.GetVector( m_playerID + "ui_left_cr", m_playerID + "ui_right_cr", m_playerID + "ui_up_cr", m_playerID + "ui_down_cr" );
+		}
         UpdateVelocity( directionalInput, delta );
 
         MoveAndCollide( m_velocity );
+
+		float shoot = 0;
+		shoot = Input.GetActionStrength(m_playerID + "ui_shoot");
+		if (shoot == 0)
+		{
+			shoot = Input.GetActionStrength(m_playerID + "ui_shoot_cr");
+		}
+		else
+		{
+			shootBullet();
+		}
     }
+
+	private void shootBullet()
+	{
+		bulletLogic bullet = (bulletLogic)bulletScene.Instance();
+		bullet.Position = Position;
+		bullet.Rotation = Rotation;
+		GetParent().AddChild(bullet);
+
+	}
 }

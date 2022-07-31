@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/THE BIG BATSTARD.png-a91a50fdcadb4b4321c3a2a23b3024be.stex"
+path="res://.import/THE BIG BATSTARD.png-343cf289b0a3c011a86031a1a9d752ef.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/THE BIG BATSTARD.png"
-dest_files=[ "res://.import/THE BIG BATSTARD.png-a91a50fdcadb4b4321c3a2a23b3024be.stex" ]
+source_file="res://Sprites/THE BIG BATSTARD.png"
+dest_files=[ "res://.import/THE BIG BATSTARD.png-343cf289b0a3c011a86031a1a9d752ef.stex" ]
 
 [params]
 

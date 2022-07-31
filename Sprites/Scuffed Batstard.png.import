@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Scuffed Batstard.png-c02090e3d28a7bb10028f753d0c5935a.stex"
+path="res://.import/Scuffed Batstard.png-667b4df05248cee2e819851ed33c1f17.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Scuffed Batstard.png"
-dest_files=[ "res://.import/Scuffed Batstard.png-c02090e3d28a7bb10028f753d0c5935a.stex" ]
+source_file="res://Sprites/Scuffed Batstard.png"
+dest_files=[ "res://.import/Scuffed Batstard.png-667b4df05248cee2e819851ed33c1f17.stex" ]
 
 [params]
 

@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold lake tile.png-8bad0e13c1820447b8dc2a80132539d8.stex"
+path="res://.import/gold lake tile.png-7b2cac4ef6a177c531c6e8f12b391f9d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/background tiles/gold lake tile.png"
-dest_files=[ "res://.import/gold lake tile.png-8bad0e13c1820447b8dc2a80132539d8.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/background tiles/gold lake tile.png"
+dest_files=[ "res://.import/gold lake tile.png-7b2cac4ef6a177c531c6e8f12b391f9d.stex" ]
 
 [params]
 
