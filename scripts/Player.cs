@@ -1,13 +1,17 @@
-using Godot;
 using System;
+using Godot;
 
 public class Player : KinematicBody2D
 {
 
-	[Export]
-	string m_playerID = "";
+    [Export]
+    string m_playerID = "";
 
-	[Export]
+    [Export]
+    float m_bulletCooldownTime = 0.125f;
+    float m_currentBulletCooldown = 0;
+
+    [Export]
     float m_movementSpeed = 30;
     [Export]
     float m_acceleration = 35;
@@ -15,7 +19,7 @@ public class Player : KinematicBody2D
     float m_frictionCoeficient = 20;
     Vector2 m_velocity = Vector2.Zero;
 
-	private AnimatedSprite sprite;
+    private AnimatedSprite sprite;
 
 
     PackedScene bulletScene;
@@ -33,52 +37,54 @@ public class Player : KinematicBody2D
         return;
     }
 
-	public override void _Ready ()
-	{
-		initiateAnimations();
+    public override void _Ready ()
+    {
+        initiateAnimations();
 
-        bulletScene = GD.Load<PackedScene>("res://Bullet.tscn");
-	}
+        bulletScene = GD.Load<PackedScene>( "res://Assets/Prefabs/Bullet.tscn" );
+    }
 
-	public void initiateAnimations()
-	{
-		sprite = ((AnimatedSprite)GetNode("AnimatedSprite"));
-		sprite.Play("Idle");
-	}
+    public void initiateAnimations ()
+    {
+        sprite = GetNode<AnimatedSprite>( "AnimatedSprite" );
+        sprite.Playing = true;
+    }
 
     public override void _PhysicsProcess ( float delta )
     {
         PhysHelp.constrainDelta( ref delta );
         Vector2 directionalInput = Input.GetVector( m_playerID + "ui_left", m_playerID + "ui_right", m_playerID + "ui_up", m_playerID + "ui_down" );
-		if (directionalInput == Vector2.Zero)
-		{
-			directionalInput = Input.GetVector( m_playerID + "ui_left_cr", m_playerID + "ui_right_cr", m_playerID + "ui_up_cr", m_playerID + "ui_down_cr" );
-		}
+        if ( directionalInput == Vector2.Zero )
+        {
+            directionalInput = Input.GetVector( m_playerID + "ui_left_cr", m_playerID + "ui_right_cr", m_playerID + "ui_up_cr", m_playerID + "ui_down_cr" );
+        }
         UpdateVelocity( directionalInput, delta );
 
         MoveAndCollide( m_velocity );
 
-		float shoot = 0;
-		shoot = Input.GetActionStrength(m_playerID + "ui_shoot");
-		if (shoot == 0)
-		{
-			shoot = Input.GetActionStrength(m_playerID + "ui_shoot_cr");
-		}
-		else
-		{
-			shootBullet();
-		}
+        if ( m_currentBulletCooldown <= 0 )
+        {
+            if ( Input.IsActionPressed( m_playerID + "ui_shoot" ) || Input.IsActionPressed( m_playerID + "ui_shoot_cr" ) )
+            {
+                m_currentBulletCooldown = m_bulletCooldownTime;
+                shootBullet();
+            }
+        }
+        else
+        {
+            m_currentBulletCooldown -= delta;
+        }
     }
 
-	private void shootBullet()
-	{
-		bulletLogic bullet = (bulletLogic)bulletScene.Instance();
-		if (bullet.reloaded == true)
-		{
-		bullet.Position = Position;
-		bullet.Rotation = Rotation;
-		GetParent().AddChild(bullet);
-		}
+    private void shootBullet ()
+    {
+        bulletLogic bullet = bulletScene.Instance<bulletLogic>();
+        if ( bullet.reloaded == true )
+        {
+            bullet.Position = Position;
+            bullet.Rotation = Rotation;
+            GetParent().AddChild( bullet );
+        }
 
-	}
+    }
 }

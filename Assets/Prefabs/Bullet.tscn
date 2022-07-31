@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://scripts/animationScripts/bulletLogic.cs" type="Script" id=1]
-[ext_resource path="res://Sprites/Moonpool Sprites/Gamejam 2022/combat sprites/sprite sheets/bat screech.png" type="Texture" id=2]
+[ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/combat sprites/sprite sheets/bat screech.png" type="Texture" id=2]
 
 [sub_resource type="AtlasTexture" id=22]
 flags = 4
@@ -52,6 +52,7 @@ animations = [ {
 } ]
 
 [sub_resource type="CircleShape2D" id=31]
+radius = 19.0263
 
 [node name="Bullet" type="Node2D"]
 position = Vector2( 539, 869 )
