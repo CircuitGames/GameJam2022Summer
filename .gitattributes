@@ -9,6 +9,9 @@
 *.gd text
 *.cs text
 
+# Declare files that will always have LF line endings on checkout.
+*.godot text eol=lf
+
 # Declare files that will always have CRLF line endings on checkout.
 *.sln text eol=crlf
 
