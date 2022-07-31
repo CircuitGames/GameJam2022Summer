@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Silviea Lacrima idle.png-dc025a2395da2b4b9bd680b292e99c1d.stex"
+path="res://.import/Silviea Lacrima idle.png-8d5047e57c7c2c29d5a5991a05305164.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Silviea Lacrima idle.png"
-dest_files=[ "res://.import/Silviea Lacrima idle.png-dc025a2395da2b4b9bd680b292e99c1d.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Silviea Lacrima idle.png"
+dest_files=[ "res://.import/Silviea Lacrima idle.png-8d5047e57c7c2c29d5a5991a05305164.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2

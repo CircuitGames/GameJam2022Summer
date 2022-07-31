@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/grass bottom shore tile.png-6e51da1a19a58708dc15257a9c10603b.stex"
+path="res://.import/grass bottom shore tile.png-d8d87d589e09f195651b392a9e57d29e.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/background tiles/grass bottom shore tile.png"
-dest_files=[ "res://.import/grass bottom shore tile.png-6e51da1a19a58708dc15257a9c10603b.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/background tiles/grass bottom shore tile.png"
+dest_files=[ "res://.import/grass bottom shore tile.png-d8d87d589e09f195651b392a9e57d29e.stex" ]
 
 [params]
 
