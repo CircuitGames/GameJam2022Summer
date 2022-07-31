@@ -95,6 +95,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 986.5, 10 )
 
 [node name="Node2D" type="Node2D"]
 
@@ -126,13 +127,16 @@ shape = SubResource( 4 )
 collision_layer = 4
 collision_mask = 4
 script = ExtResource( 4 )
+scrollSpeed = 500.0
 
 [node name="first" type="Sprite" parent="bg1Physics"]
 position = Vector2( -308, 288 )
 texture = ExtResource( 3 )
 offset = Vector2( 1268, 252 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="bg1Physics"]
+[node name="Area2D" type="Area2D" parent="bg1Physics"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="bg1Physics/Area2D"]
 position = Vector2( 960, 540 )
 shape = SubResource( 5 )
 
@@ -182,9 +186,9 @@ animation = "Idle"
 speed_scale = 2.2
 
 [node name="Killbox" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 4
+collision_layer = 7
+collision_mask = 7
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
-position = Vector2( 960, 1901 )
+position = Vector2( 978.5, 1901 )
 shape = SubResource( 6 )

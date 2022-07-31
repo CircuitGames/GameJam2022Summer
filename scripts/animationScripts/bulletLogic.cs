@@ -9,13 +9,20 @@ public class bulletLogic : Node2D
 
     Area2D self;
 
+    public bool reloaded=true;
+
+    Timer cooldown;
+
 
     public override void _Ready()
     {
         initiateAnimations();
+        reloaded=false;
         self = ((Area2D)GetNode("Area2D"));
+        cooldown = ((Timer)GetNode("Timer"));
         self.Connect("area_entered", this, "OnBulletBodyEntered");
         self.Connect("body_entered", this, "OnBulletBodyEntered");
+        cooldown.Connect("timeout", this, "onTimerTimeout");
 
     }
 
@@ -38,6 +45,11 @@ public class bulletLogic : Node2D
         sprite = ((AnimatedSprite)GetNode("AnimatedSprite"));
         //instantiates idle animation loop
 		sprite.Play("default");
+    }
+
+    public void onTimerTimeout()
+    {
+        reloaded = true;
     }
 
 //  // Called every frame. 'delta' is the elapsed time since the previous frame.

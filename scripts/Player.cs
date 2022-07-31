@@ -73,9 +73,12 @@ public class Player : KinematicBody2D
 	private void shootBullet()
 	{
 		bulletLogic bullet = (bulletLogic)bulletScene.Instance();
+		if (bullet.reloaded == true)
+		{
 		bullet.Position = Position;
 		bullet.Rotation = Rotation;
 		GetParent().AddChild(bullet);
+		}
 
 	}
 }
