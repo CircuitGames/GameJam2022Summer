@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold grass tile.png-2e2d2c36e10d0a97dc5d86e5ebc939e7.stex"
+path="res://.import/gold grass tile.png-142add94a5a3f887c9069ba7c1fda9ab.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/background tiles/gold grass tile.png"
-dest_files=[ "res://.import/gold grass tile.png-2e2d2c36e10d0a97dc5d86e5ebc939e7.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/background tiles/gold grass tile.png"
+dest_files=[ "res://.import/gold grass tile.png-142add94a5a3f887c9069ba7c1fda9ab.stex" ]
 
 [params]
 

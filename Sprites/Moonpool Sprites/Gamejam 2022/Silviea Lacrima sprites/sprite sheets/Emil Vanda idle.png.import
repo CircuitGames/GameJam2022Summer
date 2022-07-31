@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/Emil Vanda idle.png-15d531c3c6a7b1fd1ae98b30182393cd.stex"
+path="res://.import/Emil Vanda idle.png-fa8818a1d9ba30ccc58d7a06288139a5.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Emil Vanda idle.png"
-dest_files=[ "res://.import/Emil Vanda idle.png-15d531c3c6a7b1fd1ae98b30182393cd.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Emil Vanda idle.png"
+dest_files=[ "res://.import/Emil Vanda idle.png-fa8818a1d9ba30ccc58d7a06288139a5.stex" ]
 
 [params]
 

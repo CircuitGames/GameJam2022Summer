@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/tree right edge tile.png-3981e5374b226f0d6904c0eb890dba8b.stex"
+path="res://.import/tree right edge tile.png-e1b4a7f6503eedd353a0e9456d4cc5a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/background tiles/tree right edge tile.png"
-dest_files=[ "res://.import/tree right edge tile.png-3981e5374b226f0d6904c0eb890dba8b.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/background tiles/tree right edge tile.png"
+dest_files=[ "res://.import/tree right edge tile.png-e1b4a7f6503eedd353a0e9456d4cc5a4.stex" ]
 
 [params]
 

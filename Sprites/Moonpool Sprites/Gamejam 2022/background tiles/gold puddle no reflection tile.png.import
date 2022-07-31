@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/gold puddle no reflection tile.png-1e8f86ea1cd3a505bd0a4861e8516b6b.stex"
+path="res://.import/gold puddle no reflection tile.png-49214873cc000b80585499a3db827ac2.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/background tiles/gold puddle no reflection tile.png"
-dest_files=[ "res://.import/gold puddle no reflection tile.png-1e8f86ea1cd3a505bd0a4861e8516b6b.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/background tiles/gold puddle no reflection tile.png"
+dest_files=[ "res://.import/gold puddle no reflection tile.png-49214873cc000b80585499a3db827ac2.stex" ]
 
 [params]
 

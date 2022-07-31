@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/puddle no reflection tile.png-14f451de3701582a9bb8e06640d387e5.stex"
+path="res://.import/puddle no reflection tile.png-9e65ad85c33c5a4f2288de4775190b7b.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Crimson Canopy/Sprites/Moonpool Sprites/Gamejam 2022/background tiles/puddle no reflection tile.png"
-dest_files=[ "res://.import/puddle no reflection tile.png-14f451de3701582a9bb8e06640d387e5.stex" ]
+source_file="res://Sprites/Moonpool Sprites/Gamejam 2022/background tiles/puddle no reflection tile.png"
+dest_files=[ "res://.import/puddle no reflection tile.png-9e65ad85c33c5a4f2288de4775190b7b.stex" ]
 
 [params]
 
