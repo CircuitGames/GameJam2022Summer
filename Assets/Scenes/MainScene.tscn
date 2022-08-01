@@ -1,113 +1,22 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://scripts/CardinalSystem.cs" type="Script" id=1]
-[ext_resource path="res://scripts/AutoplayAnimation.cs" type="Script" id=2]
-[ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Emil Vanda idle.png" type="Texture" id=3]
-[ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Silviea Lacrima idle.png" type="Texture" id=4]
+[ext_resource path="res://Assets/Scenes/TitleScreen.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Scenes/game_jam_2022_summer.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Assets/Music/HoliznaCC0 - Day Dreams.ogg" type="AudioStream" id=5]
-[ext_resource path="res://Assets/Sprites/PlaceholderTitle.png" type="Texture" id=6]
 
-[sub_resource type="AtlasTexture" id=8]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 120, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=7]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 0, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=9]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 240, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=10]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 360, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=11]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 480, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=12]
-flags = 4
-atlas = ExtResource( 3 )
-region = Rect2( 600, 0, 120, 60 )
-
-[sub_resource type="SpriteFrames" id=21]
-animations = [ {
-"frames": [ SubResource( 8 ), SubResource( 7 ), SubResource( 9 ), SubResource( 10 ), SubResource( 11 ), SubResource( 12 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-} ]
-
-[sub_resource type="AtlasTexture" id=14]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 0, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=15]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 120, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=16]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 240, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=17]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 360, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=18]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 480, 0, 120, 60 )
-
-[sub_resource type="AtlasTexture" id=19]
-flags = 4
-atlas = ExtResource( 4 )
-region = Rect2( 600, 0, 120, 60 )
-
-[sub_resource type="SpriteFrames" id=22]
-animations = [ {
-"frames": [ SubResource( 14 ), SubResource( 15 ), SubResource( 16 ), SubResource( 17 ), SubResource( 18 ), SubResource( 19 ) ],
-"loop": true,
-"name": "Idle",
-"speed": 5.0
-} ]
-
-[node name="Node2D" type="Node2D"]
-
-[node name="Sprite" type="Sprite" parent="."]
-position = Vector2( 960, 540 )
-texture = ExtResource( 6 )
-
-[node name="(player)_Silviea_Lacrima_AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 539, 939 )
-frames = SubResource( 21 )
-animation = "Idle"
-speed_scale = 2.2
-script = ExtResource( 2 )
-
-[node name="(player2)_dat_bat_boi_AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 1429, 939 )
-frames = SubResource( 22 )
-animation = "Idle"
-speed_scale = 2.2
-script = ExtResource( 2 )
-
-[node name="CardinalSystem" type="Node2D" parent="."]
+[node name="CardinalSystem" type="Node"]
 script = ExtResource( 1 )
-m_levelNames = [ "game_jam_2022_summer" ]
-isOnTitle = true
+m_SceneContainer = NodePath("Scenes")
+m_numberedLevels = [ ExtResource( 3 ) ]
+m_sceneMap = {
+0: ExtResource( 2 )
+}
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CardinalSystem"]
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 5 )
 autoplay = true
+
+[node name="Scenes" type="Node" parent="."]
+
+[node name="TitleScreen" parent="Scenes" instance=ExtResource( 2 )]
