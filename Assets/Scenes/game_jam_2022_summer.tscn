@@ -1,13 +1,20 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Emil Vanda idle.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Music/HoliznaCC0 - Dance Till You Die.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Sprites/THE BIG BATSTARD.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Background_scripts/Scroll.cs" type="Script" id=4]
 [ext_resource path="res://scripts/Player.cs" type="Script" id=5]
 [ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Silviea Lacrima idle.png" type="Texture" id=6]
 [ext_resource path="res://Assets/Sprites/Red background.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Green background.png" type="Texture" id=8]
-[ext_resource path="res://Assets/Sprites/Blue background.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/backgrounds/Level1/1.png" type="Texture" id=9]
+[ext_resource path="res://scripts/CardinalSystem.cs" type="Script" id=10]
+[ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/backgrounds/Level1/3.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/backgrounds/Level1/2.png" type="Texture" id=12]
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 960, 540 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 43.375, 558 )
@@ -17,9 +24,6 @@ extents = Vector2( 960, 10 )
 
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 960, 10 )
-
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 960, 540 )
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 23, 14 )
@@ -105,6 +109,50 @@ extents = Vector2( 986.5, 10 )
 
 [node name="Node2D" type="Node2D"]
 
+[node name="Spawner" type="Node2D" parent="."]
+
+[node name="BG1" type="Area2D" parent="Spawner"]
+collision_layer = 4
+collision_mask = 4
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Spawner/BG1"]
+position = Vector2( 960, 540 )
+shape = SubResource( 5 )
+
+[node name="sprite" type="Sprite" parent="Spawner/BG1"]
+position = Vector2( -308, 288 )
+texture = ExtResource( 9 )
+offset = Vector2( 1268, 252 )
+
+[node name="BG2" type="Area2D" parent="Spawner"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spawner/BG2"]
+position = Vector2( 960, -540 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Spawner/BG2"]
+position = Vector2( 960, -540 )
+texture = ExtResource( 12 )
+
+[node name="BG3" type="Area2D" parent="Spawner"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spawner/BG3"]
+position = Vector2( 960, -1620 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Spawner/BG3"]
+position = Vector2( 960, -1620 )
+texture = ExtResource( 11 )
+
+[node name="BG4" type="Area2D" parent="Spawner"]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Spawner/BG4"]
+position = Vector2( 960, -2700 )
+shape = SubResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="Spawner/BG4"]
+
 [node name="Environment" type="Node2D" parent="."]
 
 [node name="Static_L_W" type="StaticBody2D" parent="Environment"]
@@ -130,23 +178,6 @@ shape = SubResource( 3 )
 [node name="Bottom_Wall" type="CollisionShape2D" parent="Environment/Static_B_Wall"]
 position = Vector2( 960, 1090 )
 shape = SubResource( 4 )
-
-[node name="bg1Physics" type="KinematicBody2D" parent="Environment"]
-collision_layer = 4
-collision_mask = 4
-script = ExtResource( 4 )
-scrollSpeed = 500.0
-
-[node name="first" type="Sprite" parent="Environment/bg1Physics"]
-position = Vector2( -308, 288 )
-texture = ExtResource( 9 )
-offset = Vector2( 1268, 252 )
-
-[node name="Area2D" type="Area2D" parent="Environment/bg1Physics"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Environment/bg1Physics/Area2D"]
-position = Vector2( 960, 540 )
-shape = SubResource( 5 )
 
 [node name="bg2Physics" type="KinematicBody2D" parent="Environment"]
 

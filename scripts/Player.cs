@@ -81,7 +81,7 @@ public class Player : KinematicBody2D
         bulletLogic bullet = bulletScene.Instance<bulletLogic>();
         if( bullet.reloaded == true )
         {
-            bullet.Position = Position + ( Vector2.Down * 20 );
+            bullet.Position = Position + ( 25 * Vector2.Up );
             bullet.Rotation = Rotation;
             GetParent().AddChild( bullet );
         }
