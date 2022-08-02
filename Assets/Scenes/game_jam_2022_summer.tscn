@@ -1,6 +1,7 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Emil Vanda idle.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Music/HoliznaCC0 - Dance Till You Die.ogg" type="AudioStream" id=2]
 [ext_resource path="res://Assets/Sprites/THE BIG BATSTARD.png" type="Texture" id=3]
 [ext_resource path="res://scripts/Background_scripts/Scroll.cs" type="Script" id=4]
 [ext_resource path="res://scripts/Player.cs" type="Script" id=5]
@@ -8,6 +9,7 @@
 [ext_resource path="res://Assets/Sprites/Red background.png" type="Texture" id=7]
 [ext_resource path="res://Assets/Sprites/Green background.png" type="Texture" id=8]
 [ext_resource path="res://Assets/Sprites/Blue background.png" type="Texture" id=9]
+[ext_resource path="res://scripts/CardinalSystem.cs" type="Script" id=10]
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 43.375, 558 )
@@ -200,3 +202,10 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
 position = Vector2( 978.5, 1901 )
 shape = SubResource( 6 )
+
+[node name="CardinalSystem" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CardinalSystem"]
+stream = ExtResource( 2 )
+autoplay = true

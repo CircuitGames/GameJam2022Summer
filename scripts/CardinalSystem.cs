@@ -3,80 +3,50 @@ using System.Collections.Generic;
 using System.Text;
 using Godot;
 
-public class CardinalSystem : Node
+public class CardinalSystem : Node2D
 {
-    public enum SceneName
-    {
-        TITLE = 0,
-        NUMBERED_LEVEL
-    }
-
     [Export]
-    SceneName m_currentLevel = SceneName.TITLE;
-    int m_currentLevelNumber = 0;
-
-    static public CardinalSystem Get( SceneTree currentActiveSceneTree )
-    {
-        CardinalSystem cardinalSystemNode = currentActiveSceneTree.Root.GetChild<CardinalSystem>( 0 );
-        return cardinalSystemNode;
-    }
-
+    List<string> m_levelNames = new List<string>();
+    int m_nextLevelId = 0;
+    StringBuilder m_stringBuilder = new StringBuilder( 64 );
     [Export]
-    NodePath m_SceneContainer = new NodePath();
-    Node scenes = null;
+    bool isOnTitle = false;
 
-    [Export]
-    List<PackedScene> m_numberedLevels = new List<PackedScene>();
-
-    [Export]
-    Dictionary<SceneName, PackedScene> m_sceneMap = new Dictionary<SceneName, PackedScene>()
+    PackedScene m_nextLevel = null;
+    private void StartLoadingNextLevel ()
     {
-        {SceneName.TITLE, null}
-    };
-
-    public void InitLevel( int levelNumber )
-    {
-        if( levelNumber < m_numberedLevels.Count )
+        if ( m_nextLevelId < m_levelNames.Count )
         {
-            m_currentLevelNumber = levelNumber;
-            m_currentLevel = SceneName.NUMBERED_LEVEL;
-            ActivateLevel( m_numberedLevels[levelNumber].Instance() );
+            m_stringBuilder.Clear();
+            m_stringBuilder.Append( "res://Assets/Scenes/" );
+            m_stringBuilder.Append( m_levelNames[m_nextLevelId] );
+            m_stringBuilder.Append( ".tscn" );
+            m_nextLevelId++;
+            m_nextLevel = GD.Load<PackedScene>( m_stringBuilder.ToString() );
         }
     }
-    public void InitLevel( SceneName levelKey )
+    private void InitNextLevel ()
     {
-        PackedScene packedScene;
-        if( m_sceneMap.TryGetValue( levelKey, out packedScene ) )
+        if ( m_nextLevel != null )
         {
-            m_currentLevel = levelKey;
-            ActivateLevel( packedScene.Instance() );
+            GetTree().ChangeSceneTo( m_nextLevel );
         }
+        StartLoadingNextLevel();
     }
 
-    private void ActivateLevel( Node level )
+    public override void _Ready ()
     {
-        if( level == null )
-        {
-            return;
-        }
-
-        foreach( Node scene in scenes.GetChildren() )
-        {
-            scenes.RemoveChild( scene );
-            scene.QueueFree();
-        }
-        scenes.AddChild( level );
+        StartLoadingNextLevel();
     }
 
-
-    public override void _Ready()
+    public override void _Process ( float delta )
     {
-        scenes = GetNode<Node>( m_SceneContainer );
-    }
-
-    public override void _Process( float delta )
-    {
-        if( Input.IsActionJustPressed( "ui_quit" ) )
+        if ( isOnTitle && Input.IsActionJustPressed( "ui_accept" ) )
+        {
+            isOnTitle = false;
+            InitNextLevel();
+        }
+        if ( Input.IsActionJustPressed( "ui_quit" ) )
         {
             GetTree().Quit();
         }

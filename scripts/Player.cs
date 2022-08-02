@@ -25,36 +25,36 @@ public class Player : KinematicBody2D
     PackedScene bulletScene;
 
 
-    void UpdateVelocity( Vector2 directionalInput, float delta )
+    void UpdateVelocity ( Vector2 directionalInput, float delta )
     {
         float friction = m_velocity.Length() * m_frictionCoeficient; // friction increases with speed
         m_velocity = m_velocity.MoveToward( Vector2.Zero, friction * delta );
 
-        if( directionalInput != Vector2.Zero )
+        if ( directionalInput != Vector2.Zero )
         {
             m_velocity = m_velocity.MoveToward( directionalInput * m_movementSpeed, m_acceleration * delta );
         }
         return;
     }
 
-    public override void _Ready()
+    public override void _Ready ()
     {
         initiateAnimations();
 
         bulletScene = GD.Load<PackedScene>( "res://Assets/Prefabs/Bullet.tscn" );
     }
 
-    public void initiateAnimations()
+    public void initiateAnimations ()
     {
         sprite = GetNode<AnimatedSprite>( "AnimatedSprite" );
         sprite.Playing = true;
     }
 
-    public override void _PhysicsProcess( float delta )
+    public override void _PhysicsProcess ( float delta )
     {
         PhysHelp.constrainDelta( ref delta );
         Vector2 directionalInput = Input.GetVector( m_playerID + "ui_left", m_playerID + "ui_right", m_playerID + "ui_up", m_playerID + "ui_down" );
-        if( directionalInput == Vector2.Zero )
+        if ( directionalInput == Vector2.Zero )
         {
             directionalInput = Input.GetVector( m_playerID + "ui_left_cr", m_playerID + "ui_right_cr", m_playerID + "ui_up_cr", m_playerID + "ui_down_cr" );
         }
@@ -62,9 +62,9 @@ public class Player : KinematicBody2D
 
         MoveAndCollide( m_velocity );
 
-        if( m_currentBulletCooldown <= 0 )
+        if ( m_currentBulletCooldown <= 0 )
         {
-            if( Input.IsActionPressed( m_playerID + "ui_shoot" ) || Input.IsActionPressed( m_playerID + "ui_shoot_cr" ) )
+            if ( Input.IsActionPressed( m_playerID + "ui_shoot" ) || Input.IsActionPressed( m_playerID + "ui_shoot_cr" ) )
             {
                 m_currentBulletCooldown = m_bulletCooldownTime;
                 shootBullet();
@@ -76,12 +76,12 @@ public class Player : KinematicBody2D
         }
     }
 
-    private void shootBullet()
+    private void shootBullet ()
     {
         bulletLogic bullet = bulletScene.Instance<bulletLogic>();
-        if( bullet.reloaded == true )
+        if ( bullet.reloaded == true )
         {
-            bullet.Position = Position + ( Vector2.Down * 20 );
+            bullet.Position = Position;
             bullet.Rotation = Rotation;
             GetParent().AddChild( bullet );
         }
