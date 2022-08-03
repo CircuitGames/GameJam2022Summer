@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/sprite sheets/Emil Vanda idle.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Music/HoliznaCC0 - Dance Till You Die.ogg" type="AudioStream" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://scripts/CardinalSystem.cs" type="Script" id=10]
 [ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/backgrounds/Level1/3.png" type="Texture" id=11]
 [ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/backgrounds/Level1/2.png" type="Texture" id=12]
+[ext_resource path="res://scripts/Background_scripts/Pause.cs" type="Script" id=13]
+[ext_resource path="res://Assets/Sprites/Moonpool Sprites/Gamejam 2022/Silviea Lacrima sprites/UI screens/Pause_Screen_-_Silviea_and_Emil_full.png" type="Texture" id=14]
 
 [sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 960, 540 )
@@ -29,32 +31,26 @@ extents = Vector2( 960, 10 )
 extents = Vector2( 23, 14 )
 
 [sub_resource type="AtlasTexture" id=7]
-flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 0, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=8]
-flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 120, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=9]
-flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 240, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=10]
-flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 360, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=11]
-flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 480, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=12]
-flags = 4
 atlas = ExtResource( 6 )
 region = Rect2( 600, 0, 120, 60 )
 
@@ -67,32 +63,26 @@ animations = [ {
 } ]
 
 [sub_resource type="AtlasTexture" id=14]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 0, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=15]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 120, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=16]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 240, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=17]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 360, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=18]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 480, 0, 120, 60 )
 
 [sub_resource type="AtlasTexture" id=19]
-flags = 4
 atlas = ExtResource( 1 )
 region = Rect2( 600, 0, 120, 60 )
 
@@ -231,3 +221,33 @@ collision_mask = 7
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Killbox"]
 position = Vector2( 978.5, 1901 )
 shape = SubResource( 6 )
+[node name="CardinalSystem" type="Node2D" parent="."]
+script = ExtResource( 10 )
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="CardinalSystem"]
+stream = ExtResource( 2 )
+autoplay = true
+
+[node name="Pause Screen" type="Control" parent="."]
+pause_mode = 2
+visible = false
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 13 )
+
+[node name="ColorRect" type="ColorRect" parent="Pause Screen"]
+margin_top = -10.0
+margin_right = 1920.0
+margin_bottom = 1070.0
+color = Color( 0, 0, 0, 0.392157 )
+
+[node name="Sprite" type="Sprite" parent="Pause Screen"]
+position = Vector2( 960, 540 )
+texture = ExtResource( 14 )
+
+[node name="Button" type="Button" parent="Pause Screen"]
+margin_left = 716.0
+margin_top = 232.0
+margin_right = 1195.0
+margin_bottom = 348.0
+text = "Paused"

@@ -18,6 +18,8 @@ public class Player : KinematicBody2D
     [Export]
     float m_frictionCoeficient = 20;
     Vector2 m_velocity = Vector2.Zero;
+    Pause pauseScreen = null;
+    Node2D parent = null;
 
     private AnimatedSprite sprite;
 
@@ -40,7 +42,8 @@ public class Player : KinematicBody2D
     public override void _Ready()
     {
         initiateAnimations();
-
+        parent = (Node2D)GetParent();
+        pauseScreen = (Pause)parent.GetNode<Control>("Pause Screen");
         bulletScene = GD.Load<PackedScene>( "res://Assets/Prefabs/Bullet.tscn" );
     }
 
@@ -73,6 +76,10 @@ public class Player : KinematicBody2D
         else
         {
             m_currentBulletCooldown -= delta;
+        }
+        if (Input.IsActionPressed("ui_pause"))
+        {
+            pauseScreen.onPauseButtonPressed();
         }
     }
 
