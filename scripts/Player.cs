@@ -18,8 +18,6 @@ public class Player : KinematicBody2D
     [Export]
     float m_frictionCoeficient = 20;
     Vector2 m_velocity = Vector2.Zero;
-    Pause pauseScreen = null;
-    Node2D parent = null;
 
     private AnimatedSprite sprite;
 
@@ -90,7 +88,7 @@ public class Player : KinematicBody2D
         {
             bullet.Position = Position + ( 25 * Vector2.Up );
             bullet.Rotation = Rotation;
-            GetParent().AddChild( bullet );
+            GetParent().GetNode<Node2D>("Environment").AddChild( bullet );
         }
 
     }

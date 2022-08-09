@@ -19,6 +19,7 @@ public class Pause : Control
             Input.ActionRelease("ui_pause");
             this.Visible = true;
             isPaused = true;
+            this.GetNode<AudioStreamPlayer>("AudioStreamPlayer").Play();
             SetProcess(true);
             GetTree().Paused = true;
         }
@@ -26,6 +27,7 @@ public class Pause : Control
         {
             GetTree().Paused = false;
             SetProcess(false);
+            this.GetNode<AudioStreamPlayer>("AudioStreamPlayer").Stop();
             isPaused = false;
             this.Visible = false;
         }
