@@ -40,8 +40,8 @@ public class Player : KinematicBody2D
     public override void _Ready()
     {
         initiateAnimations();
-        parent = (Node2D)GetParent();
-        pauseScreen = (Pause)parent.GetNode<Control>("Pause Screen");
+        parent = ( Node2D ) GetParent();
+        pauseScreen = ( Pause ) parent.GetNode<Control>( "Pause Screen" );
         bulletScene = GD.Load<PackedScene>( "res://Assets/Prefabs/Bullet.tscn" );
     }
 
@@ -75,7 +75,7 @@ public class Player : KinematicBody2D
         {
             m_currentBulletCooldown -= delta;
         }
-        if (Input.IsActionPressed("ui_pause"))
+        if( Input.IsActionPressed( "ui_pause" ) )
         {
             pauseScreen.onPauseButtonPressed();
         }
